@@ -136,12 +136,6 @@ const handleSubmit=async(e:any)=>{
           ...formData,
           
            PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY-1,
-          // TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
-         })
-         setFormData({
-          ...formData,
-          
-          // PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY-1,
           TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
          })
 
