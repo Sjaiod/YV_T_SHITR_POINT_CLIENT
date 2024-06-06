@@ -14,9 +14,9 @@ export default function Home() {
     BYER_EMAIL: '',
     BYER_PHONE: '',
     PRODUCT_QUANTITY: 1,
-    TOTAL_PRICE: 400,
     SIZE: '' // Add size here
   });
+  const [TOTAL_PRICE,setTotal_prize]=useState(formData.PRODUCT_QUANTITY*400)
 
   const handleChange = (e:any) => {
     setFormData({
@@ -50,7 +50,18 @@ const handleSubmit=async(e:any)=>{
       toast.error("Please fill all the fields")
      
     }else{
-      const response = await axios.post('https://yv-t-shitr-point-server.onrender.com/api/create-payment', formData);
+      const response = await axios.post('https://yv-t-shitr-point-server.onrender.com/api/create-payment', 
+        {
+          BYER_NAME: formData.BYER_NAME,
+          BYER_ADDRESS: formData.BYER_ADDRESS,
+          BYER_EMAIL: formData.BYER_EMAIL,
+          BYER_PHONE: formData.BYER_PHONE,
+          PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY,
+          SIZE: formData.SIZE,
+          TOTAL_PRICE: TOTAL_PRICE,
+
+        }
+      );
       if (response.data) {
         
         window.location.href = response.data; // Redirect to SSLCommerz payment page
@@ -129,14 +140,13 @@ const handleSubmit=async(e:any)=>{
         toast.error("You have to order atleaset one ")
       setFormData({
          ...formData,
-        TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
        })
       }else if(formData.PRODUCT_QUANTITY >=1){
         setFormData({
           ...formData,
           
            PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY-1,
-          TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
+         
          })
 
       }
@@ -148,7 +158,7 @@ const handleSubmit=async(e:any)=>{
       setFormData({
         ...formData,
         PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY+1,
-        TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
+  
        })
     }} className=" bg-gray-200 px-2 py-2 rounded-full hover:bg-gray-300"><FaPlus className=" cursor-pointer text-xl font-normal text-zinc-800" /></div>
    </div>
@@ -157,7 +167,7 @@ const handleSubmit=async(e:any)=>{
       <label htmlFor="input" className="text-md">
         Total Price
       </label>
-      <p>{formData.TOTAL_PRICE}</p>
+      <p>{TOTAL_PRICE}</p>
 
       
     </div>
