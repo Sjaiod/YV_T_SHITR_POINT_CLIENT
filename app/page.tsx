@@ -159,11 +159,6 @@ useEffect(()=>{})
    </div>
   </div>
   <div className="flex-col gap-1 flex px-4 py-4 max-md:w-[30rem] w-[40rem] rounded-md">
-      <button type="submit" className="w-[38rem] max-md:w-[28rem] transition-all delay-200 shadow-md border border-red-400 cursor-pointer hover:text-white h-[3rem] hover:bg-red-400  text-black rounded-md shadow px-1 py-1"  aria-label="Buy">Buy</button>
-
-      
-    </div>
-    <div className="flex-col gap-1 flex px-4 py-4 max-md:w-[30rem] w-[40rem] rounded-md">
       <label htmlFor="input" className="text-md">
         Total Price
       </label>
@@ -171,6 +166,12 @@ useEffect(()=>{})
 
       
     </div>
+  <div className="flex-col gap-1 flex px-4 py-4 max-md:w-[30rem] w-[40rem] rounded-md">
+      <button type="submit" className="w-[38rem] max-md:w-[28rem] transition-all delay-200 shadow-md border border-red-400 cursor-pointer hover:text-white h-[3rem] hover:bg-red-400  text-black rounded-md shadow px-1 py-1"  aria-label="Buy">Buy</button>
+
+      
+    </div>
+    
 
     </form>
      
