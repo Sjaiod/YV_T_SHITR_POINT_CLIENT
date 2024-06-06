@@ -17,10 +17,6 @@ export default function Home() {
     TOTAL_PRICE: 400,
     SIZE: '' // Add size here
   });
-  setFormData({
-    ...formData,
-    TOTAL_PRICE:formData.PRODUCT_QUANTITY*400
-  })
 
   const handleChange = (e:any) => {
     setFormData({
@@ -29,7 +25,6 @@ export default function Home() {
     });
   };
 
-  console.log(formData);
   
 
   const sizeList=[{
@@ -68,7 +63,6 @@ const handleSubmit=async(e:any)=>{
     
   }
 }
-useEffect(()=>{})
 
 
   return (
@@ -132,11 +126,11 @@ useEffect(()=>{})
     <div
     onClick={(e)=>{
       if(formData.PRODUCT_QUANTITY==1){
-      //  toast.error("You have to order atleaset one ")
-     //  setFormData({
-       //   ...formData,
-      //    TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
-       // })
+        toast.error("You have to order atleaset one ")
+      setFormData({
+         ...formData,
+        TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
+       })
       }else if(formData.PRODUCT_QUANTITY >=1){
         setFormData({
           ...formData,
@@ -144,6 +138,13 @@ useEffect(()=>{})
            PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY-1,
           // TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
          })
+         setFormData({
+          ...formData,
+          
+          // PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY-1,
+          TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
+         })
+
       }
      
     }} 
@@ -155,6 +156,12 @@ useEffect(()=>{})
         PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY+1,
         //TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
       })
+      setFormData({
+        ...formData,
+        
+        // PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY-1,
+        TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
+       })
     }} className=" bg-gray-200 px-2 py-2 rounded-full hover:bg-gray-300"><FaPlus className=" cursor-pointer text-xl font-normal text-zinc-800" /></div>
    </div>
   </div>
