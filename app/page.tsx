@@ -154,6 +154,14 @@ const handleSubmit=async(e:any)=>{
 
       
     </div>
+    <div className="flex-col gap-1 flex px-4 py-4 max-md:w-[30rem] w-[40rem] rounded-md">
+      <label htmlFor="input" className="text-md">
+        Total Price
+      </label>
+      <p>{formData.TOTAL_PRICE}</p>
+
+      
+    </div>
 
     </form>
      
