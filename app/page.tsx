@@ -17,6 +17,10 @@ export default function Home() {
     TOTAL_PRICE: 400,
     SIZE: '' // Add size here
   });
+  setFormData({
+    ...formData,
+    TOTAL_PRICE:formData.PRODUCT_QUANTITY*400
+  })
 
   const handleChange = (e:any) => {
     setFormData({
@@ -64,6 +68,7 @@ const handleSubmit=async(e:any)=>{
     
   }
 }
+useEffect(()=>{})
 
 
   return (
@@ -127,13 +132,17 @@ const handleSubmit=async(e:any)=>{
     <div
     onClick={(e)=>{
       if(formData.PRODUCT_QUANTITY==1){
-        toast.error("You have to order atleaset one ")
+      //  toast.error("You have to order atleaset one ")
+     //  setFormData({
+       //   ...formData,
+      //    TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
+       // })
       }else if(formData.PRODUCT_QUANTITY >=1){
         setFormData({
           ...formData,
           
            PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY-1,
-           TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
+          // TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
          })
       }
      
@@ -144,7 +153,7 @@ const handleSubmit=async(e:any)=>{
       setFormData({
        ...formData,
         PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY+1,
-        TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
+        //TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
       })
     }} className=" bg-gray-200 px-2 py-2 rounded-full hover:bg-gray-300"><FaPlus className=" cursor-pointer text-xl font-normal text-zinc-800" /></div>
    </div>
