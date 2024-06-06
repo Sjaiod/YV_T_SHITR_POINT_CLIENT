@@ -152,11 +152,6 @@ const handleSubmit=async(e:any)=>{
     <p className=" mx-2 text-xl">{formData.PRODUCT_QUANTITY}</p>
     <div onClick={(e)=>{
       setFormData({
-       ...formData,
-        PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY+1,
-        //TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
-      })
-      setFormData({
         ...formData,
         PRODUCT_QUANTITY: formData.PRODUCT_QUANTITY-1,
         TOTAL_PRICE:formData.PRODUCT_QUANTITY*400,
